@@ -1,6 +1,7 @@
 
 import React, { Component } from "react";
 import UploadService from "./Upload-service";
+import Openapi from './Openapi';
 import "bootstrap/dist/css//bootstrap.min.css"
 import "./open.css"
 
@@ -153,6 +154,17 @@ export default class UploadFiles extends Component {
                         ))}
                     </ul>
                     </div>
+
+                    <Openapi 
+                             userfiles = {fileInfos &&
+                              fileInfos.map((file, index) => (
+                                  <li key={index}>
+                                     {file.name}
+                                  </li>
+                              ))}
+                             username={this.props.currentUser.username}
+                             userkey = {this.props.currentUser.userkey}>
+                    </Openapi>
                 </div>
                 </div>
                 );

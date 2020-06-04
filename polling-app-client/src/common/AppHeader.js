@@ -57,7 +57,7 @@ class AppHeader extends Component {
           </Link>
         </Menu.Item>,
         <Menu.Item key="/open">
-        <Link to="/upload">
+        <Link to="/login">
             Open Api 
         </Link>
       </Menu.Item>,
