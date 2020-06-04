@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>ApiServer</artifactId>
+    <artifactId>csvtosql</artifactId>
     <version>0.1</version>
-    <name>ApiServer</name>
+    <name>csvtosql</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
