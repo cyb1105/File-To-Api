@@ -80,15 +80,15 @@ class App extends Component {
     this.props.history.push(redirectTo);
     
     notification[notificationType]({
-      message: 'Polling App',
+      message: 'file to api',
       description: description,
     });
   }
 
   handleLogin() {
     notification.success({
-      message: 'Polling App',
-      description: "You're successfully logged in.",
+      message: 'file to api',
+      description: "로그인에 성공 했습니다",
     });
     this.loadCurrentUser();
     this.props.history.push("/");

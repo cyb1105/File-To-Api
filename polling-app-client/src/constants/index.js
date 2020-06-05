@@ -1,4 +1,6 @@
 export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:10002/api';
+export const MY_API_URL = 'http://localhost:10004/';
+// export const API_SERVICE = 'http://localhost:8088/run';
 export const ACCESS_TOKEN = 'accessToken';
 export const User_Name = 'username';
 

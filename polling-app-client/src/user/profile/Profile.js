@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PollList from '../../poll/PollList';
+// import PollList from '../../poll/PollList';
 import { getUserProfile } from '../../util/APIUtils';
 import { Avatar, Tabs } from 'antd';
 import { getAvatarColor } from '../../util/Colors';
@@ -8,8 +8,12 @@ import LoadingIndicator  from '../../common/LoadingIndicator';
 import './Profile.css';
 import NotFound from '../../common/NotFound';
 import ServerError from '../../common/ServerError';
+import MyApiList from '../mypage/MyApiList';
+
+
 
 import { UncontrolledCollapse, Button, CardBody, Card } from 'reactstrap';
+
 
 const TabPane = Tabs.TabPane;
 
@@ -96,7 +100,7 @@ class Profile extends Component {
                                     size="large"
                                     className="profile-tabs">
                                     <TabPane tab="OPEN API 목록" key="1">
-                                        <PollList username={this.props.match.params.username} type="USER_CREATED_POLLS" />
+                                        <MyApiList username={this.props.match.params.username} userkey = {this.state.user.userkey} type="USER_CREATED_POLLS" />
                                     </TabPane>
                                     <TabPane tab="회원 정보" key="2">
                                         <div className="container">

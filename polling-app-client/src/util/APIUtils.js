@@ -1,4 +1,4 @@
-import { API_BASE_URL, POLL_LIST_SIZE, ACCESS_TOKEN } from '../constants';
+import { API_BASE_URL, POLL_LIST_SIZE, ACCESS_TOKEN, MY_API_URL} from '../constants';
 
 
 const request = (options) => {
@@ -32,6 +32,13 @@ export function getAllPolls(page, size) {
         url: API_BASE_URL + "/polls?page=" + page + "&size=" + size,
         method: 'GET'
     });
+}
+
+export function getApis(username){
+    return request({
+        url : MY_API_URL + username + "/tableinfo",
+        method: 'GET'
+    })
 }
 
 export function createPoll(pollData) {
@@ -118,3 +125,10 @@ export function getUserVotedPolls(username, page, size) {
         method: 'GET'
     });
 }
+
+// export function serviceStart(){
+//     return request({
+//         url : API_SERVICE,
+//         method : 'POST'
+//     })
+// }
