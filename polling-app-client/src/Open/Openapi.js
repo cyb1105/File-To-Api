@@ -3,7 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { withRouter } from 'react-router-dom';
 import OpenService from './Open-service'
 import { notification } from 'antd';
-// import { serviceStart } from '../util/APIUtils';
+import ServerStart from './ServerStart'
 
 
 const ModalExample = (props) => {
@@ -22,14 +22,14 @@ const ModalExample = (props) => {
     
   }
 
-  // const serviceStart = () => {
-  //  serviceStart();
-  //  toggle();    
-  // }
+  const serviceStart = () => {
+    ServerStart.serviceStart();
+   toggle();    
+  }
 
   return (
     <div>
-      <Button className="openbtn"  outline color="danger" size="lg" onClick={toggle}>Open-API 서비스 시작</Button>
+      <Button className="openbtn"  outline color="danger" size="lg" onClick={serviceStart}>Open-API 서비스 시작</Button>
       <Modal isOpen={modal} modalTransition={{ timeout: 500 }} backdropTransition={{ timeout: 800 }}
         toggle={toggle} >
         <ModalHeader toggle={toggle}> OPEN API 서비스 시작</ModalHeader>
