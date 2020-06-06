@@ -5,15 +5,15 @@
 | service     | DB             |
 | ----------- | -------------- |
 | Upload      | upload_db      |
-| UserService | myapp          |
+| UserService | myapp1         |
 | ApiServer   | csv2sql        |
 | crawlingapi | microservicedb |
 
 #### UserService 추가설정
 
 ```mysql
-Insert ignore into myapp.roles(name) values('ROLE_USER');
-Insert ignore into myapp.roles(name) values('ROLE_ADMIN');
+Insert ignore into myapp1.roles(name) values('ROLE_USER');
+Insert ignore into myapp1.roles(name) values('ROLE_ADMIN');
 ```
 
 

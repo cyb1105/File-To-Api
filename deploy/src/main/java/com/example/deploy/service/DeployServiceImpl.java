@@ -89,7 +89,10 @@ public class DeployServiceImpl implements DeployService {
                 e1.printStackTrace();
             }
         }
-
+    }
+    @Override
+    public void getpid(){
 
     }
+
 }

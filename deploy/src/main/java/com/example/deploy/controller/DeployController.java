@@ -18,7 +18,7 @@ public class DeployController {
 
     @PostMapping("/run")
     public String runner() {
-        deployService.execute("java -jar C:/Users/HPE/FileToApi/File-To-Api/ApiServer/target/csvtosql-0.1.jar");
+        deployService.execute("java -jar C:/Users/HPE/Work/git/File-To-Api/ApiServer/target/csvtosql-0.1.jar");
         //deployService.execute("ipconfig");
         return "server down";
     }
