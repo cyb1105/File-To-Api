@@ -84,6 +84,7 @@ public class FilesStorageServiceImpl implements FilesStorageService {
 
   @Override
   public void deleteAll(String user) {
+    Path root = Paths.get("C:\\shared\\"+user);
 
     FileSystemUtils.deleteRecursively(root.toFile());
   }
