@@ -17,23 +17,16 @@ public class DeployController {
 
 
     @PostMapping("/run")
-    public String runner() {
-        deployService.execute("java -jar C:/Users/HPE/Work/git/File-To-Api/ApiServer/target/csvtosql-0.1.jar");
+    public String runner(@RequestParam("user") String user) {
+        //deployService.execute("java -jar C:/Users/HPE/Work/git/File-To-Api/ApiServer/target/csvtosql-0.1.jar");
         //deployService.execute("ipconfig");
-        return "server down";
+        deployService.execute(user);
+        return "success";
     }
 
-    @PostMapping("/pid")
-    public String pid(){
-        deployService.execute("netstat -nao | findstr 10004");
-        return "GET Pid";
+    @PostMapping("/delete")
+    public String delete(@RequestParam("user") String user){
+        deployService.delete(user);
+        return "delete";
     }
-
-    @PostMapping("/down")
-    public String down(){
-        deployService.execute("netstat -nao | findstr 10004");
-        return "GET Pid";
-    }
-
-
 }
