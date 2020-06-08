@@ -9,11 +9,8 @@ import './Profile.css';
 import NotFound from '../../common/NotFound';
 import ServerError from '../../common/ServerError';
 import MyApiList from '../mypage/MyApiList';
-
-
-
 import { UncontrolledCollapse, Button, CardBody, Card } from 'reactstrap';
-
+import ServerStart from "../../Open/ServerStart"
 
 const TabPane = Tabs.TabPane;
 
@@ -51,6 +48,9 @@ class Profile extends Component {
                 });        
             }
         });        
+    }
+    apiDown(username){
+        ServerStart.serverDown(username);
     }
       
     componentDidMount() {
@@ -91,6 +91,7 @@ class Profile extends Component {
                                     <Avatar className="user-avatar-circle" style={{ backgroundColor: getAvatarColor(this.state.user.name)}}>
                                         {this.state.user.name[1].toUpperCase()}{this.state.user.name[2].toUpperCase()}
                                     </Avatar>
+                                   
                                 </div>
                             </div>
                             <div className="user-poll-details">    
@@ -125,7 +126,8 @@ class Profile extends Component {
                                                 </Card>
                                                 </UncontrolledCollapse>
                                             </div>
-                                            
+                                           
+                                            <Button className="user-api-button" color="danger">OPEN API 종료</Button>    
                                         </div>
                                     </TabPane>
                                 </Tabs>

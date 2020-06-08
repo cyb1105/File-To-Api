@@ -4,6 +4,7 @@ import UploadService from "./Upload-service";
 import Openapi from './Openapi';
 import "bootstrap/dist/css//bootstrap.min.css"
 import "./open.css"
+import '../index.css';
 
 
 export default class UploadFiles extends Component {
@@ -18,8 +19,10 @@ export default class UploadFiles extends Component {
       currentFile: undefined,
       progress: 0,
       message: "",
+      filename: "",
       fileInfos: [],
-      user: null
+      names : [],
+      user: null,
     };
   }
 
@@ -30,7 +33,7 @@ export default class UploadFiles extends Component {
     UploadService.getFiles(username).then((response) => {
 
       this.setState({
-        fileInfos: response.data,
+        fileInfos: response.data,    
       });
     });
 
@@ -43,7 +46,6 @@ export default class UploadFiles extends Component {
   }
 
   upload() {
-    
     let currentFile = this.state.selectedFiles[0];
     let username = this.props.currentUser.username;
     let userkey = this.props.currentUser.userkey;
@@ -53,20 +55,22 @@ export default class UploadFiles extends Component {
     });
 
     UploadService.upload(userkey,username,currentFile, (event) => {
+      
       this.setState({
         progress: Math.round((100 * event.loaded) / event.total),
       });
     })
       .then((response) => {
-        
         this.setState({
           message: response.data.message,
+          filename : response.data.filename
         });
         return UploadService.getFiles(username, console.log("<<<" +username));
       })
       .then((files) => {
         this.setState({
-          fileInfos: files.data,
+          fileInfos: files.data
+        
         });
       })
       .catch(() => {
@@ -79,14 +83,14 @@ export default class UploadFiles extends Component {
 
     this.setState({
       selectedFiles: undefined,
-    });
+    })
+    ;
   }
 
   delete(){
     let username = this.props.currentUser.username;
-    
     UploadService.delete(username);
-
+    
     UploadService.getFiles(username).then((files) => {
 
       this.setState({
@@ -98,14 +102,25 @@ export default class UploadFiles extends Component {
     }
 
   render() {
+   
     const {
       selectedFiles,
       currentFile,
       progress,
       message,
+      filename,
       fileInfos,
+      names
     } = this.state;
-
+  
+     
+      names.push(filename);
+      const set = Array.from(new Set(names));
+      const uploadfilename = set.filter(function(el){
+        return el != "";
+      })
+      console.log(uploadfilename);
+    
     return (
         <div className='container' style={{width: "600px"}}>
             <div style = {{margin : "30px"}}>
@@ -142,16 +157,15 @@ export default class UploadFiles extends Component {
                     <div className="alert alert-light" role="alert">
                     {message}
                     </div>
-
                     <div className="card">
                     <div className="card-header">List of Files</div>
                     <ul className="list-group list-group-flush">
-                        {fileInfos &&
-                        fileInfos.map((file, index) => (
+                        {uploadfilename &&
+                        uploadfilename.map((filename, index) => (
                             <li className="list-group-item" key={index}>
-                               {file.name}
+                               {filename}
                             </li>
-                        ))}
+                        ))} 
                     </ul>
                     </div>
 

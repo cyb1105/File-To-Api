@@ -24,6 +24,9 @@
     text-align: center;
     padding-top: 20px;
 }
+.user-api-button{
+    float: right;
+}
 
 @media (min-width: 576px) {
     .user-details {

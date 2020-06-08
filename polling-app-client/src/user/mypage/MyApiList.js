@@ -10,7 +10,9 @@ class MyApiList extends Component {
         this.loadApilist = this.loadApilist.bind(this);
     }
     loadApilist(){
+        console.log(this.props.username)
         let test = getApis(this.props.username);  
+        console.log(test)
         return test; 
     }
 
