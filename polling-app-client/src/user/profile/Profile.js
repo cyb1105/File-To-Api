@@ -22,6 +22,7 @@ class Profile extends Component {
             isLoading: false
         }
         this.loadUserProfile = this.loadUserProfile.bind(this);
+        this.apiDown = this.apiDown.bind(this);
     }
 
     loadUserProfile(username) {
@@ -49,8 +50,10 @@ class Profile extends Component {
             }
         });        
     }
-    apiDown(username){
+    apiDown(){
+        const username = this.props.match.params.username;
         ServerStart.serverDown(username);
+        console.log(username)
     }
       
     componentDidMount() {
@@ -127,7 +130,7 @@ class Profile extends Component {
                                                 </UncontrolledCollapse>
                                             </div>
                                            
-                                            <Button className="user-api-button" color="danger">OPEN API 종료</Button>    
+                                            <Button onClick={this.apiDown} className="user-api-button" color="danger">OPEN API 종료</Button>    
                                         </div>
                                     </TabPane>
                                 </Tabs>

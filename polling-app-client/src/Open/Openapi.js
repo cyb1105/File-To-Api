@@ -23,13 +23,13 @@ const ModalExample = (props) => {
   }
 
   const serviceStart = () => {
-    ServerStart.serviceStart();
+    ServerStart.serviceStart(props.username);
    toggle();    
   }
 
   return (
     <div>
-      <Button className="openbtn"  outline color="danger" size="lg" onClick={toggle}>Open-API 서비스 시작</Button>
+      <Button className="openbtn"  outline color="danger" size="lg" onClick={serviceStart}>Open-API 서비스 시작</Button>
       <Modal isOpen={modal} modalTransition={{ timeout: 500 }} backdropTransition={{ timeout: 800 }}
         toggle={toggle} >
         <ModalHeader toggle={toggle}> OPEN API 서비스 시작</ModalHeader>

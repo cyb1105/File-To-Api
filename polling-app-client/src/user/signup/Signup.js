@@ -62,13 +62,13 @@ class Signup extends Component {
         signup(signupRequest)
         .then(response => {
             notification.success({
-                message: 'Polling App',
+                message: 'File to API',
                 description: "Thank you! You're successfully registered. Please Login to continue!",
             });          
             this.props.history.push("/login");
         }).catch(error => {
             notification.error({
-                message: 'Polling App',
+                message: 'File to API',
                 description: error.message || 'Sorry! Something went wrong. Please try again!'
             });
         });
@@ -100,7 +100,7 @@ class Signup extends Component {
                                 value={this.state.name.value} 
                                 onChange={(event) => this.handleInputChange(event, this.validateName)} />    
                         </FormItem>
-                        <FormItem label="Username"
+                        <FormItem label="UserId"
                             hasFeedback
                             validateStatus={this.state.username.validateStatus}
                             help={this.state.username.errorMsg}>

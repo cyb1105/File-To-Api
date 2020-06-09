@@ -14,7 +14,7 @@
     .job-post-item h2 a {
       color: #000000; }
   .job-post-item .one-third {
-    width: calc(100% - 145px); }
+    width: calc(100% ); }
     @media (max-width: 991.98px) {
       .job-post-item .one-third {
         width: 100%; } }
@@ -65,4 +65,9 @@
       .job-post-item:hover .icon span, .job-post-item:focus .icon span {
         color: #fff; 
       }
+
+  .trash{
+    float: right;
+    cursor: pointer;
+  }
 

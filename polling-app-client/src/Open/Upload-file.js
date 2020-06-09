@@ -30,12 +30,23 @@ export default class UploadFiles extends Component {
   componentDidMount() {
     let username = this.props.currentUser.username;
 
-    UploadService.getFiles(username).then((response) => {
+    UploadService.delete(username);
+    
+    UploadService.getFiles(username).then((files) => {
 
       this.setState({
-        fileInfos: response.data,    
+        message: files.data.message,
+        fileInfos: files.date
       });
+      return UploadService.getFiles(username)
     });
+
+    // UploadService.getFiles(username).then((response) => {
+
+    //   this.setState({
+    //     fileInfos: response.data,    
+    //   });
+    // });
 
   }
 
@@ -109,7 +120,6 @@ export default class UploadFiles extends Component {
       progress,
       message,
       filename,
-      fileInfos,
       names
     } = this.state;
   
@@ -150,9 +160,9 @@ export default class UploadFiles extends Component {
                     <button className="btn btn-primary" disabled={!selectedFiles} onClick={this.upload}>
                     Upload
                     </button>
-                    <button className="btn btn-danger" onClick={this.delete}>
+                    {/* <button className="btn btn-danger" onClick={this.delete}>
                     All Delete
-                    </button>
+                    </button> */}
 
                     <div className="alert alert-light" role="alert">
                     {message}
@@ -170,10 +180,10 @@ export default class UploadFiles extends Component {
                     </div>
 
                     <Openapi 
-                             userfiles = {fileInfos &&
-                              fileInfos.map((file, index) => (
-                                  <li key={index}>
-                                     {file.name}
+                             userfiles = {uploadfilename &&
+                              uploadfilename.map((filename, index) => (
+                                  <li className="list-group-item" key={index}>
+                                     {filename}
                                   </li>
                               ))}
                              username={this.props.currentUser.username}
