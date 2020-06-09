@@ -4,6 +4,7 @@ import com.example.csvtosql.entity.KeyInfoRepository;
 import com.example.csvtosql.service.FileReadService;
 import com.example.csvtosql.service.KeyInfoServiceIm;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +13,7 @@ import java.io.FileNotFoundException;
 import java.sql.SQLException;
 
 @RestController
+@CrossOrigin("http://localhost:3000")
 public class ReadController {
 
     @Autowired
