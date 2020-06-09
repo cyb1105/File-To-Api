@@ -33,6 +33,11 @@ localhost:8080/{tablename}/detail?key={사용자 Key Value}&{테이블 헤더 �
 예)
 localhost:8080/example/detail?key=xyz&관할경찰서=파주경찰서
 
+[특정 데이터 삭제]
+localhost:8080/{tablename}/delete?key={keyvalue}
+예)
+localhost:8080/example/delete?key=xyz
+
 -------- 사용자 접근 권한 설정 X(UUID 사용 안함) ----------
 [사용자 별 table 정보 조회]
 localhost:8080/{userid}/tableinfo
@@ -46,6 +51,8 @@ localhost:8080/start?user={userid}&userKey={userkey}
 localhost:8080/start?user=user1&userKey=xyz
 
 사용자의 id, UUID를 Front의 Session으로 부터 할당받는다.
+
+
 ```
 
 

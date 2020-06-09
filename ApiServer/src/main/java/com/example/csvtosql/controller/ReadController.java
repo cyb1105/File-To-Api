@@ -2,6 +2,7 @@ package com.example.csvtosql.controller;
 
 import com.example.csvtosql.entity.KeyInfoRepository;
 import com.example.csvtosql.service.FileReadService;
+import com.example.csvtosql.service.KeyInfoService;
 import com.example.csvtosql.service.KeyInfoServiceIm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,7 +21,7 @@ public class ReadController {
     private FileReadService fileReadService;
 
     @Autowired
-    private KeyInfoServiceIm keyInfoServiceIm;
+    private KeyInfoService keyInfoService;
 
     @Autowired
     private KeyInfoRepository keyInfoRepository;
@@ -32,7 +33,7 @@ public class ReadController {
 
 
         if (keyInfoRepository.findAll().size() == 0) {
-        keyInfoServiceIm.addKeyInfoData(user,userkey);}
+        keyInfoService.addKeyInfoData(user,userkey);}
 
     }
 

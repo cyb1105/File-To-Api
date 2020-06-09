@@ -12,8 +12,8 @@ import java.util.List;
 @Service
 public class DeployServiceImpl implements DeployService {
 
-    String cmd1 = "docker run -d --network microservice --name ";
-    String cmd2 = " -e MYSQL_ROOT_PASSWORD=mysql -e MYSQL_DATABASE=upload_db mysql:latest";
+    String cmd1 = "docker run -d -p 10004:0 --name ";
+    String cmd2 = " -v /c/shared/:/var/lib/restapi/ d8913aa8893d";
 
     String cmd4 = "docker rm ";
     String cmd5 = " -f";
