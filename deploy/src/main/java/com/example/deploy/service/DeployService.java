@@ -1,6 +1,6 @@
 package com.example.deploy.service;
 
 public interface DeployService {
-    void execute(String user, String userport);
+    void execute(String userport,String user);
     void delete(String user);
 }

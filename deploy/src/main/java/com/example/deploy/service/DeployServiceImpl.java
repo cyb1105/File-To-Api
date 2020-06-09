@@ -12,15 +12,18 @@ import java.util.List;
 @Service
 public class DeployServiceImpl implements DeployService {
 
+    //    String cmd1 = "docker run -d -p ";
+//    String cmd2 = ":10004 --name ";
+//    String cmd3 = " -v /c/shared/:/var/lib/restapi/ d8913aa8893d";
     String cmd1 = "docker run -d -p ";
-    String cmd2 = ":10004 --name ";
-    String cmd3 = " -v /c/shared/:/var/lib/restapi/ d8913aa8893d";
+    String cmd2 = ":8080 --name ";
+    String cmd3 = " dbsqud1105/hello";
 
     String cmd5 = "docker rm ";
     String cmd6 = " -f";
 
     @Override
-    public void execute(String user, String userport) {
+    public void execute(String userport, String user) {
 
         String cmd4 = new StringBuilder().append(cmd1).append(userport).append(cmd2).append(user).append(cmd3).toString();
 
