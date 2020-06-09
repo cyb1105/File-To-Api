@@ -17,10 +17,10 @@ public class DeployController {
 
 
     @PostMapping("/run")
-    public String runner(@RequestParam("user") String user) {
+    public String runner(@RequestParam("user") String user,@RequestParam("userport") String userport) {
         //deployService.execute("java -jar C:/Users/HPE/Work/git/File-To-Api/ApiServer/target/csvtosql-0.1.jar");
         //deployService.execute("ipconfig");
-        deployService.execute(user);
+        deployService.execute(userport,user);
         return "success";
     }
 

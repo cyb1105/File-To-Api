@@ -12,16 +12,17 @@ import java.util.List;
 @Service
 public class DeployServiceImpl implements DeployService {
 
-    String cmd1 = "docker run -d -p 10004:0 --name ";
-    String cmd2 = " -v /c/shared/:/var/lib/restapi/ d8913aa8893d";
+    String cmd1 = "docker run -d -p ";
+    String cmd2 = ":10004 --name ";
+    String cmd3 = " -v /c/shared/:/var/lib/restapi/ d8913aa8893d";
 
-    String cmd4 = "docker rm ";
-    String cmd5 = " -f";
+    String cmd5 = "docker rm ";
+    String cmd6 = " -f";
 
     @Override
-    public void execute(String user) {
+    public void execute(String user, String userport) {
 
-        String cmd3 = new StringBuilder().append(cmd1).append(user).append(cmd2).toString();
+        String cmd4 = new StringBuilder().append(cmd1).append(userport).append(cmd2).append(user).append(cmd3).toString();
 
         Process process = null;
         Runtime runtime = Runtime.getRuntime();
@@ -43,7 +44,7 @@ public class DeployServiceImpl implements DeployService {
             cmdList.add("-c");
         }
         // 명령어 셋팅
-        cmdList.add(cmd3);
+        cmdList.add(cmd4);
         String[] array = cmdList.toArray(new String[cmdList.size()]);
 
         try {
@@ -102,7 +103,7 @@ public class DeployServiceImpl implements DeployService {
     @Override
     public void delete(String user) {
 
-        String cmd6 = new StringBuilder().append(cmd4).append(user).append(cmd5).toString();
+        String cmd7 = new StringBuilder().append(cmd5).append(user).append(cmd6).toString();
 
         Process process = null;
         Runtime runtime = Runtime.getRuntime();
@@ -124,7 +125,7 @@ public class DeployServiceImpl implements DeployService {
             cmdList.add("-c");
         }
         // 명령어 셋팅
-        cmdList.add(cmd6);
+        cmdList.add(cmd7);
         String[] array = cmdList.toArray(new String[cmdList.size()]);
 
         try {
