@@ -25,21 +25,21 @@ Insert ignore into myapp1.roles(name) values('ROLE_ADMIN');
 
 **[데이터 전체 조회]**
 
-localhost:{port}/{tablename}?key={사용자 Key Value}
+- localhost:{port}/{tablename}?key={사용자 Key Value}
 
 예) localhost:8080/example?key=xyz
 
 
 **[데이터 특정 칼럼 값 조회]**
 
-localhost:{port}/{tablename}/detail?key={사용자 Key Value}&{테이블 헤더 값}={value}&...
+- localhost:{port}/{tablename}/detail?key={사용자 Key Value}&{테이블 헤더 값}={value}&...
 
 예)localhost:8080/example/detail?key=xyz&관할경찰서=파주경찰서
 
 
 **[특정 테이블 삭제]**
 
-localhost:{port}/{tablename}/delete?key={keyvalue}
+- localhost:{port}/{tablename}/delete?key={keyvalue}
 
 예) localhost:8080/example/delete?key=xyz
 
@@ -48,7 +48,7 @@ localhost:{port}/{tablename}/delete?key={keyvalue}
 
 **[사용자 별 table 정보 조회]**
 
-localhost:{port}/{userid}/tableinfo
+- localhost:{port}/{userid}/tableinfo
 
 예) localhost:8080/user1/tableinfo
 
@@ -57,7 +57,7 @@ localhost:{port}/{userid}/tableinfo
 
 **[POST 방식을 통해 userid, UUID 정보 저장]**
 
-localhost:8080/start?user={userid}&userKey={userkey}
+- localhost:8080/start?user={userid}&userKey={userkey}
 
 예)localhost:8080/start?user=user1&userKey=xyz
 
