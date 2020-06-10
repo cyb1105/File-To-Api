@@ -15,17 +15,23 @@ public class DeployServiceImpl implements DeployService {
     //    String cmd1 = "docker run -d -p ";
 //    String cmd2 = ":10004 --name ";
 //    String cmd3 = " -v /c/shared/:/var/lib/restapi/ d8913aa8893d";
+//    String cmd1 = "docker run -d -p ";
+//    String cmd2 = ":8080 --name ";
+//    String cmd3 = " dbsqud1105/hello";
     String cmd1 = "docker run -d -p ";
-    String cmd2 = ":8080 --name ";
-    String cmd3 = " dbsqud1105/hello";
+    String cmd2 = ":";
+    String cmd3 = " --name ";
+    String cmd4 = " -e server.port=";
+    String cmd5 = " -v /c/shared/:/var/lib/shared_data/ whdvlf94/api-server-h2-linux";
 
-    String cmd5 = "docker rm ";
-    String cmd6 = " -f";
-
+    String cmd7 = "docker rm ";
+    String cmd8 = " -f";
+//ce9ef611ad7d
     @Override
     public void execute(String userport, String user) {
 
-        String cmd4 = new StringBuilder().append(cmd1).append(userport).append(cmd2).append(user).append(cmd3).toString();
+        String cmd6 = new StringBuilder().append(cmd1).append(userport).append(cmd2).append(userport)
+                .append(cmd3).append(user).append(cmd4).append(userport).append(cmd5).toString();
 
         Process process = null;
         Runtime runtime = Runtime.getRuntime();
@@ -47,7 +53,7 @@ public class DeployServiceImpl implements DeployService {
             cmdList.add("-c");
         }
         // 명령어 셋팅
-        cmdList.add(cmd4);
+        cmdList.add(cmd6);
         String[] array = cmdList.toArray(new String[cmdList.size()]);
 
         try {
@@ -106,7 +112,7 @@ public class DeployServiceImpl implements DeployService {
     @Override
     public void delete(String user) {
 
-        String cmd7 = new StringBuilder().append(cmd5).append(user).append(cmd6).toString();
+        String cmd9 = new StringBuilder().append(cmd7).append(user).append(cmd8).toString();
 
         Process process = null;
         Runtime runtime = Runtime.getRuntime();
@@ -128,7 +134,7 @@ public class DeployServiceImpl implements DeployService {
             cmdList.add("-c");
         }
         // 명령어 셋팅
-        cmdList.add(cmd7);
+        cmdList.add(cmd9);
         String[] array = cmdList.toArray(new String[cmdList.size()]);
 
         try {
