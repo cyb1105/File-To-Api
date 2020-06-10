@@ -29,11 +29,13 @@ localhost:{port}/{tablename}?key={사용자 Key Value}
 
 예) localhost:8080/example?key=xyz
 
+
 **[데이터 특정 칼럼 값 조회]**
 
 localhost:{port}/{tablename}/detail?key={사용자 Key Value}&{테이블 헤더 값}={value}&...
 
 예)localhost:8080/example/detail?key=xyz&관할경찰서=파주경찰서
+
 
 **[특정 테이블 삭제]**
 
@@ -45,14 +47,18 @@ localhost:{port}/{tablename}/delete?key={keyvalue}
 #### 사용자 접근 권한 설정 X(UUID 사용 안함)
 
 **[사용자 별 table 정보 조회]**
+
 localhost:{port}/{userid}/tableinfo
+
 예) localhost:8080/user1/tableinfo
 
 
 #### Frontend 와의 연동
 
 **[POST 방식을 통해 userid, UUID 정보 저장]**
+
 localhost:8080/start?user={userid}&userKey={userkey}
+
 예)localhost:8080/start?user=user1&userKey=xyz
 
 사용자의 id, UUID를 Front의 Session으로 부터 할당받는다.
