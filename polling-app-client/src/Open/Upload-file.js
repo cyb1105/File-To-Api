@@ -60,11 +60,12 @@ export default class UploadFiles extends Component {
     let currentFile = this.state.selectedFiles[0];
     let username = this.props.currentUser.username;
     let userkey = this.props.currentUser.userkey;
+   
     this.setState({
       progress: 0,
       currentFile: currentFile,
     });
-
+    // console.log(userport);
     UploadService.upload(userkey,username,currentFile, (event) => {
       
       this.setState({
@@ -187,7 +188,8 @@ export default class UploadFiles extends Component {
                                   </li>
                               ))}
                              username={this.props.currentUser.username}
-                             userkey = {this.props.currentUser.userkey}>
+                             userkey = {this.props.currentUser.userkey}
+                             userport =  {10010 + this.props.currentUser.id}>
                     </Openapi>
                 </div>
                 </div>

@@ -5,6 +5,10 @@ import OpenService from './Open-service'
 import { notification } from 'antd';
 import ServerStart from './ServerStart'
 
+// import {openuploadA} from '../util/APIUtils'
+
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 
 const ModalExample = (props) => {
   
@@ -12,18 +16,22 @@ const ModalExample = (props) => {
 
   const toggle = () => setModal(!modal);
   
+
+
   const openupload= () => {
-    OpenService.openupload(props.username, props.userkey);
+    OpenService.openupload(props.userport,props.username, props.userkey);
     toggle();
     notification.success({
       message: 'file to api',
       description: "open api 생성!",
     });
     
+    
   }
 
   const serviceStart = () => {
-    ServerStart.serviceStart(props.username);
+    ServerStart.serviceStart(props.username, props.userport);
+    // console.log(props.userport)
    toggle();    
   }
 
@@ -38,8 +46,8 @@ const ModalExample = (props) => {
             파일로 api 서비스를 생성합니다.
         </ModalBody>
         <ModalFooter>
+        <CircularProgress variant="determinate"/>
           <Button color="primary" onClick={openupload} >API START
-            
           </Button>{' '}
           <Button color="secondary" onClick={toggle}>Cancel</Button>
         </ModalFooter>

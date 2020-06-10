@@ -16,8 +16,9 @@ export default  class MyApiList extends Component {
   }
   loadApilist() {
     // console.log(this.props.username)
-    let test = getApis(this.props.username);
+    let test = getApis(this.props.username, this.props.userport);
     // console.log(test)
+    // console.log(this.props.userport)
     return test;
   }
 
@@ -44,6 +45,7 @@ export default  class MyApiList extends Component {
                 <TableDelete 
                   tablename = {table.tableName}
                   userkey = {userkey}
+                  userport =  {this.props.userport}
                 >    
                 </TableDelete>
               </div>

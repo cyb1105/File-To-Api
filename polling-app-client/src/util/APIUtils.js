@@ -33,13 +33,26 @@ export function getAllPolls(page, size) {
         method: 'GET'
     });
 }
-
-export function getApis(username){
+//api server url 
+export function getApis(username, userport){
     return request({
-        url : MY_API_URL + username + "/tableinfo",
+        url : MY_API_URL +userport+ "/" + username + "/tableinfo",
         method: 'GET'
     })
 }
+// export function openuploadA(uploadData){
+//     return request({
+//         url : MY_API_URL +uploadData.userport+ "/start?user=" + uploadData.username +"&userKey="+uploadData.userkey,
+//         method: 'POST',
+//         body: JSON.stringify(uploadData)         
+//     })
+// }
+// export function  opendelte(userport,tablename,userkey){
+//     return request({
+//         url : MY_API_URL +userport+ "/"  +tablename + "/delete?key=" + userkey,
+//         method: 'DELETE'
+//     })
+// }
 
 export function createPoll(pollData) {
     return request({

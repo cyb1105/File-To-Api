@@ -1,12 +1,36 @@
-import http from "./open-http"
+// import http from "./open-http"
+
+
+import axios from "axios";
+
+// export default axios.create({
+//   baseURL: "http://localhost:",
+//   headers: {
+//     "Content-type": "application/json"
+//   }
+// });
 
 class OpenService{
-    
-    openupload(username, userkey){
-        return http.post("start?user=" + username +"&userKey="+userkey)
+
+    openupload(userport,username, userkey){
+        const http = axios.create({
+            baseURL: "http://localhost:"+userport,
+            headers: {
+              "Content-type": "application/json"
+            }
+          });
+
+        return http.post("/start?user=" + username +"&userKey="+userkey)
     }
 
-    opendelte(tablename,userkey){
+    opendelte(userport,tablename,userkey){
+        const http = axios.create({
+            baseURL: "http://localhost:"+userport,
+            headers: {
+              "Content-type": "application/json"
+            }
+          });
+        //   console.log(http.delete(tablename + "/delete?key=" + userkey))
         return http.delete(tablename + "/delete?key=" + userkey)
     }
 }

@@ -104,7 +104,7 @@ class Profile extends Component {
                                     size="large"
                                     className="profile-tabs">
                                     <TabPane tab="OPEN API 목록" key="1">
-                                        <MyApiList username={this.props.match.params.username} userkey = {this.state.user.userkey} type="USER_CREATED_POLLS" />
+                                        <MyApiList username={this.props.match.params.username} userkey = {this.state.user.userkey} userport= {10010+ this.state.user.id } type="USER_CREATED_POLLS" />
                                     </TabPane>
                                     <TabPane tab="회원 정보" key="2">
                                         <div className="container">

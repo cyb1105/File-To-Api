@@ -13,6 +13,8 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 import OpenService from '../../Open/Open-service'
 
+
+
 class TableDelete extends Component {
     constructor(props) {
         super(props);
@@ -38,7 +40,7 @@ class TableDelete extends Component {
 
     tabledelete(){
         // console.log(this.props.tablename + this.props.userkey)
-        OpenService.opendelte(this.props.tablename,this.props.userkey)
+        OpenService.opendelte(this.props.userport,this.props.tablename,this.props.userkey)
         window.location.reload()
     }
 
