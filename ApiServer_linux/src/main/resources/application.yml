@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:h2:/var/lib/h2db/h2db
+    url: jdbc:h2:file:/var/lib/h2db;AUTO_SERVER=TRUE;FILE_LOCK=NO
     username: admin
     password: admin
     driverClassName: org.h2.Driver

@@ -12,6 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 @Service
 public class TableInfoServiceIm implements TableInfoService{
@@ -65,12 +66,16 @@ public class TableInfoServiceIm implements TableInfoService{
     public TableInfoEntity addTableInfoData(String userId, String tableName){
         String tableUrl = "localhost:" + this.env.getProperty("local.server.port") + "/" + tableName;
         TableInfoEntity tableInfoEntity = new TableInfoEntity();
+
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String todate = formatter.format(new Date());
+        Date date = new Date();
+        TimeZone tz = TimeZone.getTimeZone("Asia/Seoul");
+        formatter.setTimeZone(tz);
+        String nowdate = formatter.format(date);
         tableInfoEntity.setUserId(userId);
         tableInfoEntity.setTableName(tableName);
         tableInfoEntity.setUrl(tableUrl);
-        tableInfoEntity.setCreateTableTime(todate);
+        tableInfoEntity.setCreateTableTime(nowdate);
 
         return repository.save(tableInfoEntity);
     }
