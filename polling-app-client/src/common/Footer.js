@@ -62,13 +62,13 @@ class Footer extends React.Component {
                 </ul>
               </div>
             </div>
-            <div class="row">
+            {/* <div class="row">
             <div class="col-md-12 text-center">
-              <p>대구광역시 동구 첨단로 53 (41068) 한국정보화진흥원     대표자 : 최윤병</p>
+              <p>대구광역시 동구 첨단로 53 (41068) 한국정보화진흥원     대표자 : 채윤병</p>
               <p>사업자등록번호 : 135-82-04900  대표번호 : 1566-0025</p>
               <p>문의시간 : 09:00~18:00 (월~금)   팩스 : 053-230-1929</p>
             </div>
-          </div>
+          </div> */}
           </div>
           
         </div>

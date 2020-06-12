@@ -21,12 +21,13 @@ import NotFound from '../common/NotFound';
 import LoadingIndicator from '../common/LoadingIndicator';
 import PrivateRoute from '../common/PrivateRoute';
 // import Main from '../data/Main';
-import Detailggdata from '../data/Detailggdata';
-import Detailseouldata from '../data/Detailseouldata';
-import Detailpublicdata from '../data/Detailspublicdata';
+import Detailggdata from '../search/categorySite/Detailggdata';
+import Detailseouldata from '../search/categorySite/Detailseouldata';
+import Detailpublicdata from '../search/categorySite/Detailpublicdata';
 import Test from '../main/Test'
 import Search from '../search/Search'
 import { Layout, notification } from 'antd';
+import '../search/Search.css';
 const { Content } = Layout;
 
 class App extends Component {
