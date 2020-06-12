@@ -24,8 +24,8 @@ public class FilesStorageServiceImpl implements FilesStorageService {
 
   FileRepository fileRepository;
 
-  //private Path root = Paths.get("./shared");
-  private Path root = Paths.get("C:\\shared");
+  private Path root = Paths.get("./shared");
+//  private Path root = Paths.get("C:\\shared");
 
   private String root2 ="";
 
@@ -47,11 +47,11 @@ public class FilesStorageServiceImpl implements FilesStorageService {
 //  }
 
   @Override
-  public void save(MultipartFile file, String user, String userkey ) {
+  public void save(MultipartFile file, String user, String userkey) {
 
     try {
-      String path = new StringBuilder().append(root).append("\\").append(user).toString();
-//      String path = new StringBuilder().append(root).append("/").append(user).toString();
+//      String path = new StringBuilder().append(root).append("\\").append(user).toString();
+      String path = new StringBuilder().append(root).append("/").append(user).toString();
       Path roots = Paths.get(path);
       if(!new File(path).exists()) {
         Files.createDirectory(Paths.get(path));
@@ -86,8 +86,8 @@ public class FilesStorageServiceImpl implements FilesStorageService {
 
   @Override
   public void deleteAll(String user) {
-    Path root = Paths.get("C:\\shared\\"+user);
-//    Path root = Paths.get("./shared/"+user);
+//    Path root = Paths.get("C:\\shared\\"+user);
+    Path root = Paths.get("./shared/"+user);
     FileSystemUtils.deleteRecursively(root.toFile());
   }
 
