@@ -1,9 +1,10 @@
 server:
-  port: 10004
+  port: 8080
 
 spring:
   datasource:
-    url: jdbc:h2:~/data/h2db
+#    url: jdbc:h2:~/var/lib/h2db
+    url: jdbc:h2:~/data/testdb/test
     username: admin
     password: admin
     driverClassName: org.h2.Driver

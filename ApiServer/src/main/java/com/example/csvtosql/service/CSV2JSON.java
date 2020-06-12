@@ -20,9 +20,9 @@ public class CSV2JSON {
     public CSV2JSON() {
     }
 
-    public CSV2JSON(String filename) throws IOException {
+    public void csvToJson(String filename) throws IOException {
         File input = new File(filename);
-        File output = new File("Z:\\output.json");
+//        File output = new File("Z:\\output.json");
 
         CsvSchema csvSchema = CsvSchema.builder().setUseHeader(true).build();
         CsvMapper csvMapper = new CsvMapper();
@@ -33,10 +33,10 @@ public class CSV2JSON {
         ObjectMapper mapper = new ObjectMapper();
 
         // Write JSON formated data to output.json file
-        mapper.writerWithDefaultPrettyPrinter().writeValue(output, readAll);
+//        mapper.writerWithDefaultPrettyPrinter().writeValue(output, readAll);
 
         // Write JSON formated data to stdout
-//        System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(readAll));
+        System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(readAll));
     }
 
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.SQLException;
@@ -61,6 +62,7 @@ public class FileReadServiceIm implements FileReadService {
 
         }
 
+
         //지정한 경로 내 파일 이름 읽기
         for (File fname : fileList) {
             if (fname.isFile()) {
@@ -70,6 +72,7 @@ public class FileReadServiceIm implements FileReadService {
 
 
                 String realFileName = fileName.substring(0, fileName.length() - 4);
+
 
                 if (!tableNameList.contains(realFileName)) {
                     dbConnect(fileName, fileFullName);
@@ -83,14 +86,16 @@ public class FileReadServiceIm implements FileReadService {
     }
 
 
+
     @Override
     public void dbConnect(String tName, String fileFullName) throws SQLException, FileNotFoundException {
+
+
         //MySQL connect
         CsvToSqlRepository db = new CsvToSqlRepository();
 
         //CSV Reader
         Scanner inputReader = new Scanner(new File(fileFullName), "utf-8");
-
 
         //CSV Columns 조회
         String columns = (inputReader.nextLine()).replace(" ", ",");

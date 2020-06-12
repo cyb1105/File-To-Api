@@ -14,6 +14,7 @@ public class CsvtosqlApplication {
 
     public static void main(String[] args) {
 
+
         SpringApplication.run(CsvtosqlApplication.class, args);
 
     }
