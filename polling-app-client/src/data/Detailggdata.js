@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Pagination from "react-js-pagination";
-import NewsFeed  from '../data/NewsFeed';
+import NewsFeed  from './NewsFeed';
 import ContactInfo from './ContactInfo';
 import { Table } from 'reactstrap';
 import './Data.css';

@@ -5,7 +5,6 @@ export default class ContactInfo extends Component {
     render() {
         return (
                 
-           
         <tr align="center">
           <td align="center">{this.props.articlesDetails.location}</td>
           <td align="center">{this.props.articlesDetails.category}</td>

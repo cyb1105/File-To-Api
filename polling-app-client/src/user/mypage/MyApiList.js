@@ -39,7 +39,7 @@ export default  class MyApiList extends Component {
     return (
       <div className="col-md-12 ftco-animate">
         {apilistinfo && apilistinfo.map((table, index) => (
-          <div className="job-post-item p-4 d-block d-lg-flex align-items-center"  key={index}>
+          <div className="container job-post-item p-4 d-block d-lg-flex align-items-center"  key={index}>
             <div className="one-third mb-4 mb-md-0">
               <div>
                 <TableDelete 

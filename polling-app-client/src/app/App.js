@@ -9,8 +9,8 @@ import {
 import { getCurrentUser } from '../util/APIUtils';
 import { ACCESS_TOKEN } from '../constants';
 
-import Data from '../data/Data';
-import Detail from '../data/Detail';
+// import Data from '../data/Data';
+// import Detail from '../data/Detail';
 import Login from '../user/login/Login';
 // import Open from '../Open/Open'; 
 import Upload from '../Open/Upload-file'
@@ -20,11 +20,12 @@ import AppHeader from '../common/AppHeader';
 import NotFound from '../common/NotFound';
 import LoadingIndicator from '../common/LoadingIndicator';
 import PrivateRoute from '../common/PrivateRoute';
-import Main from '../data/Main';
+// import Main from '../data/Main';
 import Detailggdata from '../data/Detailggdata';
 import Detailseouldata from '../data/Detailseouldata';
 import Detailpublicdata from '../data/Detailspublicdata';
-
+import Test from '../main/Test'
+import Search from '../search/Search'
 import { Layout, notification } from 'antd';
 const { Content } = Layout;
 
@@ -105,18 +106,20 @@ class App extends Component {
             onLogout={this.handleLogout} />
 
           <Content className="app-content">
-            <div className="container">
+            
+            <div className="container111">
               <Switch>      
               <Route exact path="/" >
-                    <Main />
+                    <Test />
                 </Route>
-              <Route path="/detailggdata" component={Detailggdata}>/</Route>
+                
+                <Route path="/detailggdata" component={Detailggdata}>/</Route>
                 <Route path="/detailseouldata" component={Detailseouldata}>/</Route>
                 <Route path="/Detailspublicdata" component={Detailpublicdata}>/</Route>
               
-                <Route path="/data" component={Data}></Route>
-                <Route path="/detail" component={Detail}></Route>
-                <Route path="/detail/:usersId" component={Detail}></Route>
+                <Route path="/data" component={Search}></Route>
+                {/* <Route path="/detail" component={Detail}></Route>
+                <Route path="/detail/:usersId" component={Detail}></Route> */}
                 {/* <Route path="/open" component={Open}></Route> */}
                 
                 {/* <Route path="/upload" component={Upload}></Route> */}
