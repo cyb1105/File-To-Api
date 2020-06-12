@@ -24,6 +24,7 @@ public class FilesStorageServiceImpl implements FilesStorageService {
 
   FileRepository fileRepository;
 
+  //private Path root = Paths.get("./shared");
   private Path root = Paths.get("C:\\shared");
 
   private String root2 ="";
@@ -50,6 +51,7 @@ public class FilesStorageServiceImpl implements FilesStorageService {
 
     try {
       String path = new StringBuilder().append(root).append("\\").append(user).toString();
+//      String path = new StringBuilder().append(root).append("/").append(user).toString();
       Path roots = Paths.get(path);
       if(!new File(path).exists()) {
         Files.createDirectory(Paths.get(path));
@@ -85,7 +87,7 @@ public class FilesStorageServiceImpl implements FilesStorageService {
   @Override
   public void deleteAll(String user) {
     Path root = Paths.get("C:\\shared\\"+user);
-
+//    Path root = Paths.get("./shared/"+user);
     FileSystemUtils.deleteRecursively(root.toFile());
   }
 
@@ -93,6 +95,7 @@ public class FilesStorageServiceImpl implements FilesStorageService {
   public Stream<Path> loadAll( String user) {
 
     String path = new StringBuilder().append(root).append("\\").append(user).toString();
+//    String path = new StringBuilder().append(root).append("/").append(user).toString();
     root2 = path;
     try {
       return Files.walk(Paths.get(this.root2)).filter(Files::isRegularFile).map(root::relativize);
