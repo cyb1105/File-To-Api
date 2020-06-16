@@ -1,4 +1,4 @@
 FROM openjdk:8-jdk-alpine
-COPY target/csvtosql-0.1.jar apiServer.jar
+COPY target/csvtosql-0.1.jar apiServerWindows.jar
 VOLUME /tmp
-CMD ["java", "-jar", "apiServer.jar"]
+CMD ["java", "-jar", "apiServerWindows.jar"]

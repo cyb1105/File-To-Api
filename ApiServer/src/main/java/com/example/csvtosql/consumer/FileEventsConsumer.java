@@ -43,7 +43,11 @@ public class FileEventsConsumer {
         FileEvent fileEvent = objectMapper.readValue(consumerRecord.value(), FileEvent.class);
 
         if (fileEvent.getFileEventType() == FileEventType.NOFILE) {
-            log.info("파일 없습니다");
+            log.info("파일이 없습니다");
+            jsonObject = new JSONObject();
+            jsonObject.put("1","파일이 없습니다.");
+            jsonArray.put(jsonObject);
+            kafkaMessage();
 
 
         } else if (fileEvent.getFileEventType() == FileEventType.CREATE) {

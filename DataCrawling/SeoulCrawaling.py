@@ -62,7 +62,7 @@ def siteviewAddress(web_address):
     print('-'*50)
 
     # DB 연결
-    conn = pymysql.connect(host='127.0.0.1',port=3306,user='root',passwd='mysql',db='microservicedb')
+    conn = pymysql.connect(host='127.0.0.1',port=3306,user='root',passwd='spring',db='microservicedb')
     # DB 연결 확인을 위해 사용
     print('연결완료')
 

@@ -22,7 +22,9 @@ public class DeployServiceImpl implements DeployService {
     String cmd2 = ":";
     String cmd3 = " --name ";
     String cmd4 = " -e server.port=";
-    String cmd5 = " -v /var/lib/shared_data/:/var/lib/shared_data/ whdvlf94/api-server-h2-linux";
+    String cmd5 = " -v /var/lib/shared_data/:/var/lib/shared_data/ whdvlf94/api-server-linux";
+//    String cmd5 = " -v /c/shared:/var/lib/shared_data whdvlf94/api-server-linux";
+
 
     String cmd7 = "docker rm ";
     String cmd8 = " -f";
