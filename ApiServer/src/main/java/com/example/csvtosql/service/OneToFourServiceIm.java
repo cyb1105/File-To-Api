@@ -1,76 +1,49 @@
 package com.example.csvtosql.service;
 
 
+import com.example.csvtosql.consumer.FileEventsConsumer;
+import org.json.JSONArray;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
 import java.net.*;
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
-public class OneToFourServiceIm implements OneToFourService{
+public class OneToFourServiceIm implements OneToFourService {
 
     public OneToFourServiceIm() {
     }
+    @Autowired
+    FileEventsConsumer fileEventsConsumer;
 
     @Override
-    public void getURL(String filename) {
+    public JSONArray getURL(String filename) {
         try {
-            String mURL = "http://localhost:10004/"+filename+"?key=xyz";
+            String requestUrl = "http://localhost:8080/" + filename + "?key=abc";
 
-            URL url = new URL(mURL);
+            URL url = new URL(requestUrl);
 
             URLConnection con = url.openConnection();
-            con.setConnectTimeout(3000);
-            con.setReadTimeout(3000);
+//            con.setConnectTimeout(3000);
+//            con.setReadTimeout(3000);
             InputStream is = con.getInputStream();
-            System.out.println("Request GET Method "+((HttpURLConnection)con).getResponseCode()+" OK!");
+            int connectOk = ((HttpURLConnection) con).getResponseCode();
 
-
-            Scanner scan = new Scanner(is);
-
-            int line =1;
-            while(scan.hasNext()){
-                String str = scan.nextLine();
-                System.out.println((line++) + ":" + str);
+            if(connectOk == 200) {
+                System.out.println("Request GET Method " + ((HttpURLConnection) con).getResponseCode() + " OK!");
+                JSONArray jsonArray = fileEventsConsumer.kafkaMessage();
+                return jsonArray;
             }
-            scan.close();
-
-
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
-    @Override
-    public void postURL() {
-        try {
-            String data = URLEncoder.encode("user", "UTF-8") + "=" + URLEncoder.encode("user2", "UTF-8");
-            data += "&" + URLEncoder.encode("userKey", "UTF-8") + "=" + URLEncoder.encode("xyz", "UTF-8");
-
-            URL url = new URL("http://localhost:10004/start?");
-            URLConnection con = url.openConnection();
-            con.setConnectTimeout(3000);
-            con.setReadTimeout(3000);
-
-            //요청 메서드 POST로 변경
-            con.setDoOutput(true);
-
-            OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
-            wr.write(data);
-            wr.flush();
-
-            BufferedReader rd = new BufferedReader(new InputStreamReader(con.getInputStream(),"UTF-8"));
-
-            wr.close();
-            rd.close();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }

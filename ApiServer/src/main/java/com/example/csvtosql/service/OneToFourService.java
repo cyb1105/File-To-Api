@@ -1,6 +1,8 @@
 package com.example.csvtosql.service;
 
+import org.json.JSONArray;
+
 public interface OneToFourService {
-    void getURL(String filename);
-    void postURL();
+    JSONArray getURL(String filename);
+
 }

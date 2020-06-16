@@ -3,8 +3,7 @@ server:
 
 spring:
   datasource:
-#    url: jdbc:h2:~/var/lib/h2db
-    url: jdbc:h2:~/data/testdb/test
+    url: jdbc:h2:file:~/data/testdb/test
     username: admin
     password: admin
     driverClassName: org.h2.Driver
@@ -16,4 +15,13 @@ spring:
         web-allow-others: true
   jpa:
     hibernate:
-    ddl-auto: update
+      ddl-auto: update
+
+  kafka:
+    consumer:
+      bootstrap-servers: 59.29.224.136:9092
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      group-id: file-events-listener-group
+      auto-offset-reset: latest
+      enable-auto-commit: false
